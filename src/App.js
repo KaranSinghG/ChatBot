@@ -18,15 +18,35 @@ const particlesOptions = {
     }
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state={
+      input:'',
+      message:[]
+    }
+  }
+
+  onInputChange=(event)=>{
+    this.setState({input:event.target.value});
+  }
+
+  onButtonSubmit=()=>{
+    this.setState({message: [...this.state.message,this.state.input]});
+    this.setState({input: ''});
+  }
+
   render() {
   return (
     <div className="App">
-      <Particles className='particles'
+      <Particles 
+        className='particles'
         params={particlesOptions}
       />
       <Logo />
-      <ChatWindow />
-      <MessageBox />
+      <ChatWindow message={this.state.message}/>
+      <MessageBox 
+        onInputChange={this.onInputChange} 
+        onButtonSubmit={this.onButtonSubmit} />
     </div>
   );
 }}

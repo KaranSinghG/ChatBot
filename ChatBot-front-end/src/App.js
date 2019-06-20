@@ -30,7 +30,8 @@ class App extends Component {
     this.setState({input:event.target.value});
   }
 
-  onButtonSubmit=()=>{
+  onButtonSubmit=(e)=>{
+    e.preventDefault();
     this.setState({message: [...this.state.message,this.state.input]});
     this.setState({input: ''});
   }
@@ -46,7 +47,9 @@ class App extends Component {
       <ChatWindow message={this.state.message}/>
       <MessageBox 
         onInputChange={this.onInputChange} 
-        onButtonSubmit={this.onButtonSubmit} />
+        onButtonSubmit={this.onButtonSubmit} 
+        input={this.state.input}
+      />
     </div>
   );
 }}

@@ -1,4 +1,4 @@
-#!C:\Users\KARAN\WebProjects\ChatBotApplication\venv\Scripts\python.exe
+#!C:\Users\KARAN\WebProjects\ChatBot-App\venv\Scripts\python.exe
 from django.core import management
 
 if __name__ == "__main__":
